@@ -14,6 +14,10 @@ public class BouteilleBiere { //Création de la classe bouteille bière
     double degreAlcool;
     boolean ouverte;
 
+    BouteilleBiere() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     void lireEtiquette() { //action pour afficher l'etiquette
 
         System.out.println("Bouteille de " + nom + " (" + degreAlcool + " degres) \nBrasserie : " + brasserie); // affichage de l'etiquette
@@ -23,7 +27,7 @@ public class BouteilleBiere { //Création de la classe bouteille bière
 
         if (ouverte == false) { //Boucle pour savoir si la biére est ouverte ou non
             ouverte = true; //ouvrir la biére
-            System.out.println("La biére est bien ouverte"); //Vérification que la biére est bien ouverte
+          
             return true; 
         } else { //Si la biére est déjà ouverte
             System.out.println("Erreur : Biére déja ouverte"); //afficher que la biére est déja ouverte
