@@ -8,5 +8,10 @@
  * @author luluxontheflux
  */
 public class convertisseur {
-    float CelciusVersKelvin,KelvinVersCelcius, 
+    //float CelciusVersKelvin,KelvinVersCelcius,FarenheitVersCelcius,CelciusVersFarenheit,FarenheitVersKelvin,KelvinVersFarenheit;
+
+void Convertisseur(){
+    
 }
+}
+  
