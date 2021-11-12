@@ -29,18 +29,20 @@ Couleur=c;
 }
 
 
-   
+public boolean ajouterJeton(Jeton jeton) {
+// boolean i=false;
+int i=0;
+    while ( i<ListeJetons.length ){// parcours le tableau de jetons
+    if (ListeJetons[i]==null){
+    ListeJetons[i]=jeton; 
+    i++; 
+    return true;
+    }
+    else{
+        i++;
+        return false; 
+    }  
+}
 }
 
-//public boolean ajouterJeton(Jeton listeJeton) {
-    
-    
-  //return false;  
-//}
-
-
-
-
-    
-    
 }
