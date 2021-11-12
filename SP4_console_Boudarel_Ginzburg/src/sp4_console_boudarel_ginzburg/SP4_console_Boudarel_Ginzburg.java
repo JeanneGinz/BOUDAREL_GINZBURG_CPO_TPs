@@ -16,10 +16,8 @@ public class SP4_console_Boudarel_Ginzburg {
     public static void main(String[] args) {
      
   System.out.println("Bienvenue sur le Super Puissance 4"); 
-        
-        
-                
-              
+  
+     
     }
     
 }
