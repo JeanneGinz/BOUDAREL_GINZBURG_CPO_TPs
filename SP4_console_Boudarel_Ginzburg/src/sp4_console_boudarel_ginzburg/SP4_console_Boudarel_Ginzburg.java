@@ -14,7 +14,12 @@ public class SP4_console_Boudarel_Ginzburg {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+     
+  System.out.println("Bienvenue sur le Super Puissance 4"); 
+        
+        
+                
+              
     }
     
 }
