@@ -52,16 +52,17 @@ else  { couleur="jaune";  //si le chiffre est 1, le joueur sera jaune*/
       joueur1.affecterCouleur(couleur);  //joueur 1 devient jaune
       joueur2.affecterCouleur("rouge"); }//joueur 2 devient rouge
 
-      nb=0;
+      /*nb=0; // réinitialisation pour determiner le joeur qui commence
       nb = random.nextInt(2);
       if (nb==0){
-          
+          String coul=2*/
       }
       
+    
       
       
       
       
     }
     
-}
+
