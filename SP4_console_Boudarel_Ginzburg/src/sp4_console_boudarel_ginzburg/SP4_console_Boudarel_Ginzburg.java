@@ -57,12 +57,13 @@ else  { couleur="jaune";  //si le chiffre est 1, le joueur sera jaune*/
       if (nb==0){
           String coul=2*/
       }
-      
+     
     
-      
-      
-      
-      
+    
+    
+    
+    
+    
     }
     
 

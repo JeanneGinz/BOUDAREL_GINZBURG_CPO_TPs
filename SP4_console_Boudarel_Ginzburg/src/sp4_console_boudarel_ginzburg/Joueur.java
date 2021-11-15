@@ -34,15 +34,17 @@ public boolean ajouterJeton(Jeton jeton) {
 int i=0;
     while ( i<ListeJetons.length ){// parcours le tableau de jetons
     if (ListeJetons[i]==null){
-    ListeJetons[i]=jeton; 
+    ListeJetons[i]=jeton; //ajouter les jetons 
     i++; 
     return true;
     }
     else{
         i++;
-        return false; 
+        return false;  //permet de sortir du while une fois les jetons distribués 
     }  
+}
+    return false;// permet de sortir de la fonction ajouter Jeton
+    
 }
 }
 
-}
