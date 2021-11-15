@@ -20,9 +20,15 @@ Cellule[][] CellulesJeu = new Cellule[6][7]; // Création de l'objet de type de 
         }
             
     } 
-    public boolean ajouterJetonDansColonne(Jeton, int ajou) {
-        
-
+    public boolean ajouterJetonDansColonne(Jeton jet, int col) {
+        int i=0;
+        while(CellulesJeu[i][col]!=null){
+            i++;
+            if(i>6){
+                return false; // on a parcouru toute la colonne 
+            }
+        }
+        CellulesJeu[i][col]= jet.affecterJeton();
     }
     
     

@@ -23,7 +23,8 @@ public class Cellule {
         if (j != null) {
             return false; // la case posséde déjà un jeton
         } else {
-            return true;   // la case est vide  
+            jetonCourant=j;
+            return true;// la case est vide   
         }
     }
 
