@@ -33,15 +33,30 @@ public class Grille {
     }
 
     public boolean etreRemplie() {
-        for (int i = 0, i < 6;i++){
-            for (int j = 0, j < 7; j++ ){
-                    if (jetonCourant.Cellule[i][j] != null) {
+        for (int i = 0; i < 6;i++){
+            for (int j = 0; j < 7; j++ ){
+                    if ( jetonCourant.CellulesJeu[i][j] != null) {
                     return true;
-                    else return false;
-                }
+                    }
+                    else return false;                
             }
 
         }
     }
 
+    public void viderGrille(){
+         for (int i = 0; i < 6;i++){
+            for (int j = 0; j < 7; j++ ){
+                CellulesJeu[i][j]=null;
+            }
+        }
+    }
+
+ public void afficherGrilleSurConsole () {
+    for (int i = 0; i < 6;i++){
+            for (int j = 0; j < 7; j++ ){
+               System.out.print(CellulesJeu[i][j]+" ");
+}              System.out.println("");
 }
+}
+ }

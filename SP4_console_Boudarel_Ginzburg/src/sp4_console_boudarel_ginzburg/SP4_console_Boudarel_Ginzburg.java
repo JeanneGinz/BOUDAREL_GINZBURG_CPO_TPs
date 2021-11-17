@@ -57,9 +57,13 @@ else  { couleur="jaune";  //si le chiffre est 1, le joueur sera jaune*/
       if (nb==0){
           String coul=2*/
       }
-     
-    
-    
+   
+    //TEST 
+    Jeton j=new Jeton("rouge");
+    String a J.recupere(couleur);
+    System.out.print(a);
+    Cellule c = new Cellule();
+    c.affecterJeton(j);
     
     
     
