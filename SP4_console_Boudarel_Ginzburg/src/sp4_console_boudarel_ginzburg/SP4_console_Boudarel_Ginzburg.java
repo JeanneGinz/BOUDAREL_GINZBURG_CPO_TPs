@@ -18,7 +18,7 @@ public class SP4_console_Boudarel_Ginzburg {
      */
     public static void main(String[] args) {
      
-  System.out.println("Bienvenue sur le Super Puissance 4"); 
+  /*System.out.println("Bienvenue sur le Super Puissance 4"); 
   
  Scanner sc; //initialisation du scanner
  sc=new Scanner (System.in);
@@ -49,25 +49,29 @@ if (nb==0){ //si le chiffre est 0, le joueur sera rouge
       joueur2.affecterCouleur("jaune"); //joueur 2 devient jaune
  }
 else  { couleur="jaune";  //si le chiffre est 1, le joueur sera jaune*/
-      joueur1.affecterCouleur(couleur);  //joueur 1 devient jaune
-      joueur2.affecterCouleur("rouge"); }//joueur 2 devient rouge
+     // 2// A ENLEVER joueur1.affecterCouleur(couleur);  //joueur 1 devient jaune
+     //2// A ENLEVER joueur2.affecterCouleur("rouge"); }//joueur 2 devient rouge
 
       /*nb=0; // réinitialisation pour determiner le joeur qui commence
       nb = random.nextInt(2);
       if (nb==0){
           String coul=2*/
-      }
+     //2// A ENLEVER }
    
-    //TEST 
-    Jeton j=new Jeton("rouge");
-    String a J.recupere(couleur);
-    System.out.print(a);
-    Cellule c = new Cellule();
-    c.affecterJeton(j);
-    
-    
-    
-    
+   Jeton j=new Jeton("rouge");
+   System.out.print(j.lireCouleur());
+   Cellule c=new Cellule();
+   System.out.print(c.lireCouleurduJeton());
+   c.affecterJeton(j);
+   System.out.print(c.lireCouleurduJeton());
+   grille a=new Grille();
+   a.afficherGrilleSurConsole();
+   a.ajouterJetondansColonne(j,5);
+   a.afficherGrilleSurConsole();
     }
+}
+    
+    
+    
     
 

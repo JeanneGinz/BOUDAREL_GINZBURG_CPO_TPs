@@ -10,15 +10,15 @@ package sp4_console_boudarel_ginzburg;
  */
 public class Jeton {
   
-    String couleurJet;
+    String couleurJet; 
      
   public Jeton ( String c){
-    couleurJet = c;
+    couleurJet = c; 
     
 }
   public String lireCouleur(){
       
-     return couleurJet;
+     return couleurJet; // retourne la couleur du jeton
      
   }
 }
