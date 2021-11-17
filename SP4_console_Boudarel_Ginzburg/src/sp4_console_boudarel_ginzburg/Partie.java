@@ -18,8 +18,12 @@ public class Partie {
 
 }
     public void initialiserPartie(){
-        
+        Grille CellulesJeu=new Grille[];
+        Jeton jeton []= new Jetons[21] ;
                 
+    }
+    public void attribuerCouleursAuxJoueurs(){
+        
     }
 }
     
