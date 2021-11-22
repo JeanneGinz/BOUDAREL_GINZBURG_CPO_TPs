@@ -11,6 +11,7 @@ package sp4_console_boudarel_ginzburg;
 public class Grille {// Création de la classe grille
 
     Cellule[][] CellulesJeu = new Cellule[6][7]; // Création de l'objet de type de cellule
+boolean trouNoir, desintegrateur;
 
     public Grille() { //le constructeur de la classe
         for (int i = 0; i < 6; i++) { //boucle pour parcourir le tableau
@@ -72,7 +73,7 @@ public class Grille {// Création de la classe grille
     }
 
     public boolean celluleOccupee(int i, int j) {
-        if (CellulesJeu[i][j].jetonCourant != null) { //
+        if (CellulesJeu[i][j].jetonCourant != null) { 
             return false;
         }
         return true;
@@ -81,13 +82,48 @@ public class Grille {// Création de la classe grille
     public String lireCouleurDuJeton(int i, int j) {
         String couleur;
         couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+        
         return couleur;
     }
+    
+  
+ 
+   
+   
+    public boolean placerTrouNoir(int i, int j){
+      
+        if (CellulesJeu[i][j].presenceTrouNoir() ==false){ //verifiez que la case n'a pas déjà un trou noir
+        CellulesJeu[i][j].placerTrouNoir(); // placement du trou noir
+        return true; 
+        }
+        return false; //il y a deja un trou noir
+      }
+      
+     
+    
+  public boolean placerDesintegrateur(int i, int j){
+      
+     if (CellulesJeu[i][j].presenceDesintegrateur() ==false){ //verifiez que la case n'a pas déjà un Desintegrateur
+        CellulesJeu[i][j].placerDesintegrateur(); // placement du Desintegrateur
+        return true; 
+        }
+        return false; //il y a deja un trou noir
+      }
+      
+  public  boolean supprimerJeton(int i,int j){
+      
+
+      return CellulesJeu[i][j].supprimerJeton();
+    
+  }
+  
 
     public boolean etreGagnantePourJoueur(Joueur j) {
 
-        //verifier si il il y a une ligne gagnante
-        return true;
+ if (gagnantEnLigne()==true||gagnantEnColonne()==true||gagnantEnDiagonalMont()||gagnantEnDiagonalDesc()==true){
+        return true;}
+ 
+        return false;
     }
 
     public boolean gagnantEnLigne() {
@@ -244,6 +280,21 @@ public class Grille {// Création de la classe grille
         }
         return false;
 
-    }
+    
+}
+    
+ public void tasserGrille(int j ) {
+      for (int i=5; i>0;i--){
+         
+          while (i < 6 && CellulesJeu[i][j].jetonCourant != null){
+              i--;  
+          }
+          
+         CellulesJeu[i][j].jetonCourant= CellulesJeu[i+1][j].jetonCourant;
+         CellulesJeu[i+1][j]=null;
+      
+      }
+     
+ }
 
 }
