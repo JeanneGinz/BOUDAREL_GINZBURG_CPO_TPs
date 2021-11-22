@@ -57,7 +57,4 @@ public class SP4_console_Boudarel_Ginzburg {
     }
 }
     
-    
-    
-    
 
