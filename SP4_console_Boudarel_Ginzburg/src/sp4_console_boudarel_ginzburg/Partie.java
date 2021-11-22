@@ -97,11 +97,12 @@ public void debuterPartie(){
    joueur2=new Joueur(nom2);//affectation de son nom dans la classe
    
     initialiserPartie(); // préparation de la grille de jeu
-    
+    attribuerCouleursAuxJoueurs();
    //boucle verifie while 
    while(){
        
-       
+     for (int i=0; i<42; i++){ // boucle pour poser remplir les 42 cellules de grille donc finir une partie dans le plus long cas
+           
    }
 
 }
