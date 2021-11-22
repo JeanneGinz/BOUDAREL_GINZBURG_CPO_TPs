@@ -103,7 +103,7 @@ public class Cellule {
             
             
             if (trouNoir==true){ //verification de la présence d'un trou noir
-                jetonCourant.supprimerJeton();
+                supprimerJeton();
                 trouNoir=false;  // supression du trou noir
                 return true; //La méthode s'est correctement réalisé
             }

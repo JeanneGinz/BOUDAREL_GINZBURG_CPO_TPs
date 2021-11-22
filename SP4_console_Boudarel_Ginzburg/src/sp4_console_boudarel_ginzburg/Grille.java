@@ -90,23 +90,33 @@ boolean trouNoir, desintegrateur;
  
    
    
+    public boolean placerTrouNoir(int i, int j){
+      
+        if (CellulesJeu[i][j].presenceTrouNoir() ==false){ //verifiez que la case n'a pas déjà un trou noir
+        CellulesJeu[i][j].placerTrouNoir(); // placement du trou noir
+        return true; 
+        }
+        return false; //il y a deja un trou noir
+      }
+      
+     
+    
+  public boolean placerDesintegrateur(int i, int j){
+      
+     if (CellulesJeu[i][j].presenceDesintegrateur() ==false){ //verifiez que la case n'a pas déjà un Desintegrateur
+        CellulesJeu[i][j].placerDesintegrateur(); // placement du Desintegrateur
+        return true; 
+        }
+        return false; //il y a deja un trou noir
+      }
+      
+  public  boolean supprimerJeton(int i,int j){
+      
+
+      return CellulesJeu[i][j].supprimerJeton();
+    
+  }
   
-      
-      
-      
-  }
-    
-  public boolean placerDesintegrateur(){
-      int i=0,j=0;
-      
-  }
-           
-    
-    
-    
-    
-    
-    
 
     public boolean etreGagnantePourJoueur(Joueur j) {
 
@@ -273,6 +283,18 @@ boolean trouNoir, desintegrateur;
     
 }
     
-    
+ public void tasserGrille(int j ) {
+      for (int i=5; i>0;i--){
+         
+          while (i < 6 && CellulesJeu[i][j].jetonCourant != null){
+              i--;  
+          }
+          
+         CellulesJeu[i][j].jetonCourant= CellulesJeu[i+1][j].jetonCourant;
+         CellulesJeu[i+1][j]=null;
+      
+      }
+     
+ }
 
 }
