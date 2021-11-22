@@ -73,7 +73,7 @@ boolean trouNoir, desintegrateur;
     }
 
     public boolean celluleOccupee(int i, int j) {
-        if (CellulesJeu[i][j].jetonCourant != null) { //
+        if (CellulesJeu[i][j].jetonCourant != null) { 
             return false;
         }
         return true;
