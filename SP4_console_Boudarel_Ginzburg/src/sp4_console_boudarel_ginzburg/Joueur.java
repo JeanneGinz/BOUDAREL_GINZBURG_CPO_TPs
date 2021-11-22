@@ -46,5 +46,25 @@ int i=0;
     return false;// permet de sortir de la fonction ajouter Jeton
     
 }
+public void obtenirDesintegrateur(){
+    nombreDesintegrateurs ++;
+    
+}
+        
+ public boolean utiliserDesintegrateur()   {
+     
+     if (nombreDesintegrateurs>0){
+  nombreDesintegrateurs = nombreDesintegrateurs-1;
+     return true;
+     }
+     else 
+     return false;
+           
+ }    
+
+
+
+
+
 }
 

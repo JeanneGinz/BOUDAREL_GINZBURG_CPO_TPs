@@ -11,6 +11,7 @@ package sp4_console_boudarel_ginzburg;
 public class Grille {// Création de la classe grille
 
     Cellule[][] CellulesJeu = new Cellule[6][7]; // Création de l'objet de type de cellule
+boolean trouNoir, desintegrateur;
 
     public Grille() { //le constructeur de la classe
         for (int i = 0; i < 6; i++) { //boucle pour parcourir le tableau
@@ -81,13 +82,38 @@ public class Grille {// Création de la classe grille
     public String lireCouleurDuJeton(int i, int j) {
         String couleur;
         couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
+        
         return couleur;
     }
+    
+  
+ 
+   
+   
+  
+      
+      
+      
+  }
+    
+  public boolean placerDesintegrateur(){
+      int i=0,j=0;
+      
+  }
+           
+    
+    
+    
+    
+    
+    
 
     public boolean etreGagnantePourJoueur(Joueur j) {
 
-        //verifier si il il y a une ligne gagnante
-        return true;
+ if (gagnantEnLigne()==true||gagnantEnColonne()==true||gagnantEnDiagonalMont()||gagnantEnDiagonalDesc()==true){
+        return true;}
+ 
+        return false;
     }
 
     public boolean gagnantEnLigne() {
@@ -244,6 +270,9 @@ public class Grille {// Création de la classe grille
         }
         return false;
 
-    }
+    
+}
+    
+    
 
 }

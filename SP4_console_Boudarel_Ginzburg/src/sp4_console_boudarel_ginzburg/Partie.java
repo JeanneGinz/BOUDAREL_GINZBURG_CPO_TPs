@@ -9,7 +9,7 @@ package sp4_console_boudarel_ginzburg;
  * @author jeann
  */
 public class Partie {
-    Joueur[] ListeJoueurs=new Joueur[2];
+    Joueur[] ListeJoueurs = new Joueur[2];
     Joueur joueurCourant;
     Grille grilleJeu;
     
