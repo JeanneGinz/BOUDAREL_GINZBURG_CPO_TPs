@@ -71,7 +71,4 @@ else  { couleur="jaune";  //si le chiffre est 1, le joueur sera jaune*/
     }
 }
     
-    
-    
-    
 
