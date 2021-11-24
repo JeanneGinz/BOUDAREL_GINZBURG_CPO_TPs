@@ -130,8 +130,8 @@ initialiserPartie(); // préparation de la grille de jeu
        // boucle qui continue la partie tant que la grille n'est pas rempli ou qu'un des joueurs a gagné
        if (joueurCourant==ListeJoueurs[0]){
            System.out.println("Rentrez le chiffre de la colonne que vous voulez joueur, entre 0 et 6");
-           int col=sc.nextInt(); // 
-           
+           int col=sc.nextInt(); // entre le numéro de la colonne où il veut jouer
+           Jeton jet = joueurCourant.ListeJetons[i]; 
             grilleJeu.ajouterJetonDansColonne(jet, col);
            grilleJeu.afficherGrilleSurConsole();
            joueurCourant=ListeJoueurs[1];// le prochain joueur à joueur est l'autre joueur
