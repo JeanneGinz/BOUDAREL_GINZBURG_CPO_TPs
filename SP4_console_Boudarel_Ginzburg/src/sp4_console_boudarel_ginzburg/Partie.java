@@ -77,7 +77,7 @@ public class Partie {
       grilleJeu.CellulesJeu[DesinC][DesinC].placerDesintegrateur();  } // placer le désinteagrateur
       else i--; // recommencer car il y a deja un trou noir
     }
-     
+    }
      //placement des 3 désintégrateurs hor trou noir
     
     public void attribuerCouleursAuxJoueurs(){
@@ -96,6 +96,7 @@ else  { couleur="jaune";  //si le chiffre est 1, le joueur sera jaune*/
       ListeJoueurs[0].affecterCouleur(couleur);  //joueur 1 devient jaune
      ListeJoueurs[1].affecterCouleur("rouge"); }//joueur 2 devient rouge
     }
+    
 
 
     
@@ -129,17 +130,64 @@ initialiserPartie(); // préparation de la grille de jeu
    while(grilleJeu.etreRemplie()==false || grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])==false && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])==false){
        // boucle qui continue la partie tant que la grille n'est pas rempli ou qu'un des joueurs a gagné
        if (joueurCourant==ListeJoueurs[0]){
-           System.out.println("Rentrez le chiffre de la colonne que vous voulez joueur, entre 0 et 6");
-           int col=sc.nextInt(); // entre le numéro de la colonne où il veut jouer
+            int Action = 0; 
+            System.out.println("Les différentes actions possibles : "); // differentes actions possibles pour le joueur
+            System.out.println("1. Poser un jeton");
+            System.out.println("2. Désintégrer un jeton adverse");
+            System.out.println("3. Récupérer un jeton");
+            Action = sc.nextInt();
+        
+            switch (Action) {
+
+
+                case 1: 
+                    System.out.println("Rentrez le chiffre de la colonne que vous voulez joueur, entre 0 et 7");
+                    int col=sc.nextInt(); // entre le numéro de la colonne où il veut jouer
+                    if (col<=-1||col>8){
+                        System.out.println("Hors grille, veuillez re-saisir un chiffre compris entre 0 et 7"); // notre grille de jeu possède 7 colonnes 
+                    }
+                    if (grilleJeu.celluleOccupee(col, col) == true){
+                    System.out.println("Colonne remplie. Réessayer.");
+                    ChoixC = sc.nextInt() -1;       
+                    }
+                    
+                    Jeton JetonCourant = joueurCourant.enleverJeton();
+                    GrilleJeu.ajouterJetonDansColonne(JetonCourant, ChoixC);
+                    }
+                    GrilleJeu.afficherGrilleSurConsole();
+                    
+                    break; // importance du break pour couper la boucle
+                  
+                case 2:
+                    System.out.println("Choix indisponible pour le moment");
+                    break; 
+
+                case 3:
+                    System.out.println("Choix indisponible pour le moment");
+                    break; 
+                    
+                default:
+                    System.out.println("Choix non valide"); //message d'erreur si l'utilisateur rentre un numéro de choix non valide (inférieur à 1 ou supérieur à 6)
+            } 
+           
+           
+          // Joueur nombreJetonsRestants;
+          //if (int i=0; i<nombreJetonsRestants; i++){
+          
+           }
+           
            Jeton jet = joueurCourant.ListeJetons[i]; 
-            grilleJeu.ajouterJetonDansColonne(jet, col);
+           
+           
+           grilleJeu.ajouterJetonDansColonne(jet, col);
            grilleJeu.afficherGrilleSurConsole();
            joueurCourant=ListeJoueurs[1];// le prochain joueur à joueur est l'autre joueur
-  
+           
+           
      
            
    }
 System.out.println(joueurCourant.Nom + " a gagné la partie");
 }
-}
+
 }
