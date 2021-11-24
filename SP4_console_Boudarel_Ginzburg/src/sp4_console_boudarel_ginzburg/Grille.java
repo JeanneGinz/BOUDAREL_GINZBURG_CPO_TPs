@@ -120,8 +120,9 @@ boolean trouNoir, desintegrateur;
 
     public boolean etreGagnantePourJoueur(Joueur j) {
 
- if (gagnantEnLigne()==true||gagnantEnColonne()==true||gagnantEnDiagonalMont()||gagnantEnDiagonalDesc()==true){
-        return true;}
+ if (gagnantEnLigne()==true||gagnantEnColonne()==true||gagnantEnDiagonalMont()==true||gagnantEnDiagonalDesc()==true){
+        return true;
+ }
  
         return false;
     }
