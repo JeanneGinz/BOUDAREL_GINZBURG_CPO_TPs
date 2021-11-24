@@ -20,6 +20,7 @@ public class Partie {
     ListeJoueurs[1] = joueur2;
 
 }
+    @SuppressWarnings("empty-statement")
     public void initialiserPartie(){
         grilleJeu=new Grille();
         for(int v=0; v<22; v++){ // on crée 21 jetons pour le 1er joueur
@@ -48,9 +49,36 @@ public class Partie {
          else{ joueurCourant=ListeJoueurs[1];}
          
         }
-      
-      
+      int i;
+      //placement des trous noirs
+      for (i=0;i<=3;i++) { //boucle placer les 5 trous noirs
+      int trouNoirL = random.nextInt(6);//randomiser les coordonées en ligne
+      int trouNoirC = random.nextInt(7);//randomiser les coordonées en colonne
+      if (grilleJeu.CellulesJeu[trouNoirL][trouNoirC].presenceTrouNoir()==false){ // verifier qu'il n'y est pas déjà de trou noir
+      grilleJeu.CellulesJeu[trouNoirL][trouNoirC].placerTrouNoir();  } // placer le trou noir
+      else i--; // recommencer car il y a deja un trou noir
     }
+      //placement des trous noir et désintégrateurs sur la même case
+            for (i=0;i<=2;i++) { //boucle placer les 5 trous noirs
+      int trouNoirL = random.nextInt(6);//randomiser les coordonées en ligne
+      int trouNoirC = random.nextInt(7);//randomiser les coordonées en colonne
+      if (grilleJeu.CellulesJeu[trouNoirL][trouNoirC].presenceTrouNoir()==false){ // verifier qu'il n'y est pas déjà de trou noir
+      grilleJeu.CellulesJeu[trouNoirL][trouNoirC].placerTrouNoir();
+       grilleJeu.CellulesJeu[trouNoirL][trouNoirC].placerDesintegrateur() ;
+               } // placer le trou noir
+      else i--; // recommencer car il y a deja un trou noir
+    }
+      
+     //placement des 3 désintégrateurs 
+     for (i=0;i<=3;i++) { //boucle placer les 5 trous noirs
+      int DesinL = random.nextInt(6);//randomiser les coordonées en ligne
+      int DesinC = random.nextInt(7);//randomiser les coordonées en colonne
+      if (grilleJeu.CellulesJeu[DesinL][DesinC].presenceTrouNoir()==false){ // verifier qu'il n'y est pas déjà de trou noir
+      grilleJeu.CellulesJeu[DesinC][DesinC].placerDesintegrateur();  } // placer le désinteagrateur
+      else i--; // recommencer car il y a deja un trou noir
+    }
+     
+     //placement des 3 désintégrateurs hor trou noir
     
     public void attribuerCouleursAuxJoueurs(){
   
