@@ -115,24 +115,26 @@ initialiserPartie(); // préparation de la grille de jeu
    System.out.println("Comment s'appelle le premier joueur ?"); //demande des pseusos
    nom1 = sc.nextLine(); //Enregistrement dans la mémoire des pseudos
   
-   Joueur joueur1; //Création de l'objet étant le premier joueur
-   joueur1=new Joueur(nom1); //affectation de son nom dans la classe
+   ListeJoueurs[0]=new Joueur(nom1); //affectation de son nom dans la classe
   
    System.out.println("Comment s'appelle le deuxième joueur ?");//Création de l'objet étant le deuxième joueur
    nom2 = sc.nextLine();
       
-   Joueur joueur2;//Création de l'objet étant le premier joueur
-   joueur2=new Joueur(nom2);//affectation de son nom dans la classe
+ 
+   ListeJoueurs[1]=new Joueur(nom2);//affectation de son nom dans la classe
    
     initialiserPartie(); // préparation de la grille de jeu
     attribuerCouleursAuxJoueurs();
    //boucle verifie while 
-   while(grilleJeu.etreRemplie()==false || grilleJeu.etreGagnantePourJoueur(joueur2)==false && grilleJeu.etreGagnantePourJoueur(joueur1)==false){
+   while(grilleJeu.etreRemplie()==false || grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])==false && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])==false){
        // boucle qui continue la partie tant que la grille n'est pas rempli ou qu'un des joueurs a gagné
-       if (joueurCourant==joueur1){
-           ajouterJetonDansColonne
+       if (joueurCourant==ListeJoueurs[0]){
+           System.out.println("Rentrez le chiffre de la colonne que vous voulez joueur, entre 0 et 6");
+           int col=sc.nextInt(); // 
            
-           joueurCourant==joueur2;// le prochain joueur à joueur est l'autre joueur
+            grilleJeu.ajouterJetonDansColonne(jet, col);
+           grilleJeu.afficherGrilleSurConsole();
+           joueurCourant=ListeJoueurs[1];// le prochain joueur à joueur est l'autre joueur
   
      
            
