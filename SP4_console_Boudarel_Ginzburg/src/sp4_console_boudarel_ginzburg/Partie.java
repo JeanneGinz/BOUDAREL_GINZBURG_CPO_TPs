@@ -74,8 +74,8 @@ else  { couleur="jaune";  //si le chiffre est 1, le joueur sera jaune*/
 public void debuterPartie(){
 
     
-    grilleJeu.viderGrille(); // on vérifie ue la grille soit bien vide pour ne pas créer de pbs
-    initialiserPartie(); // préparation de la grille de jeu
+grilleJeu.viderGrille(); // on vérifie ue la grille soit bien vide pour ne pas créer de pbs
+initialiserPartie(); // préparation de la grille de jeu
     
     System.out.println("Bienvenue sur le Super Puissance 4"); 
   
@@ -99,11 +99,17 @@ public void debuterPartie(){
     initialiserPartie(); // préparation de la grille de jeu
     attribuerCouleursAuxJoueurs();
    //boucle verifie while 
-   while(){
-       
-     for (int i=0; i<42; i++){ // boucle pour poser remplir les 42 cellules de grille donc finir une partie dans le plus long cas
+   while(grilleJeu.etreRemplie()==false || grilleJeu.etreGagnantePourJoueur(joueur2)==false && grilleJeu.etreGagnantePourJoueur(joueur1)==false){
+       // boucle qui continue la partie tant que la grille n'est pas rempli ou qu'un des joueurs a gagné
+       if (joueurCourant==joueur1){
+           ajouterJetonDansColonne
+           
+           joueurCourant==joueur2;// le prochain joueur à joueur est l'autre joueur
+  
+     
            
    }
-
+System.out.println(joueurCourant.Nom + " a gagné la partie");
+}
 }
 }
