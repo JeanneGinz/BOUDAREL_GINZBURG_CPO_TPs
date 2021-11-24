@@ -136,36 +136,35 @@ initialiserPartie(); // préparation de la grille de jeu
             System.out.println("2. Désintégrer un jeton adverse");
             System.out.println("3. Récupérer un jeton");
             Action = sc.nextInt();
-        
+          
+          int i=21;
+          Jeton jet = joueurCourant.ListeJetons[i]; 
+           
             switch (Action) {
 
 
                 case 1: 
-                    System.out.println("Rentrez le chiffre de la colonne que vous voulez joueur, entre 0 et 7");
-                    int col=sc.nextInt(); // entre le numéro de la colonne où il veut jouer
-                    if (col<=-1||col>8){
-                        System.out.println("Hors grille, veuillez re-saisir un chiffre compris entre 0 et 7"); // notre grille de jeu possède 7 colonnes 
-                    }
-                    if (grilleJeu.celluleOccupee(col, col) == true){
-                    System.out.println("Colonne remplie. Réessayer.");
-                    ChoixC = sc.nextInt() -1;       
-                    }
-                    
-                    Jeton JetonCourant = joueurCourant.enleverJeton();
-                    GrilleJeu.ajouterJetonDansColonne(JetonCourant, ChoixC);
-                    }
-                    GrilleJeu.afficherGrilleSurConsole();
-                    
+                    System.out.println("Rentrez le chiffre de la colonne que vous voulez joueur, entre 0 et 6");
+                    int col=sc.nextInt();        
+                grilleJeu.ajouterJetonDansColonne(jet, col);
+                 i--;        
                     break; // importance du break pour couper la boucle
                   
                 case 2:
-                    System.out.println("Choix indisponible pour le moment");
+                      System.out.println("Rentrez le chiffre de la colonne puis la ligne que vous voulez utiliser votre désintégrateur, entre 0 et 6 puis 0 et 5");
+                      int coll=sc.nextInt();  
+                      int lin=sc.nextInt();  
+                  joueurCourant.utiliserDesintegrateur();
+                  grilleJeu.tasserGrille(coll);
+                      
                     break; 
 
                 case 3:
-                    System.out.println("Choix indisponible pour le moment");
-                    break; 
                     
+                jetonRecup.recupererJeton();
+                   
+                    break; 
+//                    
                 default:
                     System.out.println("Choix non valide"); //message d'erreur si l'utilisateur rentre un numéro de choix non valide (inférieur à 1 ou supérieur à 6)
             } 
@@ -175,11 +174,7 @@ initialiserPartie(); // préparation de la grille de jeu
           //if (int i=0; i<nombreJetonsRestants; i++){
           
            }
-           
-           Jeton jet = joueurCourant.ListeJetons[i]; 
-           
-           
-           grilleJeu.ajouterJetonDansColonne(jet, col);
+          
            grilleJeu.afficherGrilleSurConsole();
            joueurCourant=ListeJoueurs[1];// le prochain joueur à joueur est l'autre joueur
            
