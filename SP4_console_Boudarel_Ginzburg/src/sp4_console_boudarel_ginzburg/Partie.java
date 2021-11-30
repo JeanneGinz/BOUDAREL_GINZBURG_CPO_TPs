@@ -154,7 +154,7 @@ initialiserPartie(); // préparation de la grille de jeu
                 case 2: //Désintégrer un jeton adverse
                     
 
-                Scanner s = new Scanner(System.in);
+               // sc = new Scanner(System.in);
                 System.out.println("Entrez un numéro de ligne: ");
                 int lign = sc.nextInt() - 1; // car on commence à 0
                 if (lign > 5 || lign < 0) {
@@ -163,7 +163,7 @@ initialiserPartie(); // préparation de la grille de jeu
                 }
                 System.out.println("Entrez un chiffre pour la ligne: ");
 
-                int coll = sc.nextInt() - 1;
+                 coll = sc.nextInt() - 1;
 
                 if (coll > 6 || coll < 0) {
 
@@ -239,9 +239,9 @@ initialiserPartie(); // préparation de la grille de jeu
 
             }
 
- 
-
-        }
+} 
+}
+        
 
         if (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) {
 
@@ -270,7 +270,7 @@ initialiserPartie(); // préparation de la grille de jeu
 
     }
 
-}
+
   }                   
                 default:
                     System.out.println("Choix non valide"); //message d'erreur si l'utilisateur rentre un numéro de choix non valide (inférieur à 1 ou supérieur à 6)
@@ -281,11 +281,7 @@ initialiserPartie(); // préparation de la grille de jeu
           //if (int i=0; i<nombreJetonsRestants; i++){
           
            }
-           
-           Jeton jet = joueurCourant.ListeJetons[i]; 
-           
-           
-           grilleJeu.ajouterJetonDansColonne(jet, col);
+          
            grilleJeu.afficherGrilleSurConsole();
            joueurCourant=ListeJoueurs[1];// le prochain joueur à joueur est l'autre joueur
            
