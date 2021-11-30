@@ -126,6 +126,7 @@ boolean trouNoir, desintegrateur;
         return false;
     }
 
+    
     public boolean gagnantEnLigne() {
 
         //Test pour le joueur avec les jetons Rouges
@@ -165,6 +166,7 @@ boolean trouNoir, desintegrateur;
         return false;
     }
 
+    public void 
     public boolean gagnantEnColonne() {
         //Test pour le joueur avec les jetons Rouges
         for (int i = 0; i < 2; i++) {//boucle pour parcourir le tableau
@@ -242,6 +244,12 @@ boolean trouNoir, desintegrateur;
 
         return false;
     }
+    
+    boolean colonneRemplie (int colonne){
+
+        return CellulesJeu[5][colonne].jetonCourant!=null ; 
+
+}
 
     public boolean gagnantEnDiagonalDesc() {
 
