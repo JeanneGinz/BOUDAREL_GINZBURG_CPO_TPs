@@ -126,7 +126,11 @@ boolean trouNoir, desintegrateur;
  
         return false;
     }
+boolean colonneRemplie (int colonne){
 
+        return CellulesJeu[5][colonne].jetonCourant!=null ; 
+
+}
     
     public boolean gagnantEnLigne() {
 
@@ -167,7 +171,7 @@ boolean trouNoir, desintegrateur;
         return false;
     }
 
-    public void 
+   
     public boolean gagnantEnColonne() {
         //Test pour le joueur avec les jetons Rouges
         for (int i = 0; i < 2; i++) {//boucle pour parcourir le tableau
@@ -246,12 +250,7 @@ boolean trouNoir, desintegrateur;
         return false;
     }
     
-    boolean colonneRemplie (int colonne){
-
-        return CellulesJeu[5][colonne].jetonCourant!=null ; 
-
-}
-
+ 
     public boolean gagnantEnDiagonalDesc() {
 
         for (int i = 3; i < 7; i++) {
@@ -305,5 +304,13 @@ boolean trouNoir, desintegrateur;
       }
      
  }
+public Jeton recupererJeton(int ligne, int colone){
 
+    Jeton recuperationJeton =  CellulesJeu[ligne][colone].jetonCourant;
+
+    CellulesJeu[ligne][colone].supprimerJeton();
+
+    return recuperationJeton;          
+
+}
 }

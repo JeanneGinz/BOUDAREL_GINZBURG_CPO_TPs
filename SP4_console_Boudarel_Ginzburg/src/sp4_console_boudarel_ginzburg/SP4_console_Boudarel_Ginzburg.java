@@ -18,9 +18,9 @@ public class SP4_console_Boudarel_Ginzburg {
      */
     public static void main(String[] args) {
       System.out.println("Bienvenue dans Puissance 4");
-        Partie unePartie = new Partie();
+        Partie unePartie = new Partie(new Joueur("a"), new Joueur("b"));
         unePartie.debuterPartie();
     }
 }
-} 
+ 
 
