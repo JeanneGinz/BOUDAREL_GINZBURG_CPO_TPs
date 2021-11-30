@@ -21,18 +21,17 @@ boolean trouNoir, desintegrateur;
         }
 
     }
-
-    public boolean ajouterJetonDansColonne(Jeton jet, int col) { //Création de la classe ajoutant les jetons
-        int i = 0;
-        while (CellulesJeu[i][col] != null) {//Parcourir la colonne pour placer le jeton au plus bas de la grille
-            i++;
-            if (i > 6) {// on a parcouru toute la colonne 
-                return false; //la ligne est pleine
-            }
+public boolean ajouterJetonDansColonne(Jeton Jet, int c){ // prend en paramètre un jeton et une colonne
+    for (int l=0; l<6; l++){ // parcours des lignes
+        if (CellulesJeu[l][c].jetonCourant == null){ // dès qu' une case de la colonne fixée est vide on affecte le jeton
+           // CellulesJeu[l][c].affecterJeton(Jet);
+           CellulesJeu[l][c].jetonCourant=Jet;
+            return true;
         }
-        return CellulesJeu[i][col].affecterJeton(jet);//renvois du jeton placé
     }
-
+return false; // colonne remplie
+}
+ 
     public boolean etreRemplie() {
         for (int i = 0; i < 6; i++) {//boucle pour parcourir le tableau
             for (int j = 0; j < 7; j++) {
@@ -52,8 +51,38 @@ boolean trouNoir, desintegrateur;
             }
         }
     }
+    public void  afficherGrilleSurConsole() {
+  // affiche la grille dans la console
 
-    public void afficherGrilleSurConsole() { // classe pour afficher la grille
+    for (int l=5; l>=0; l--){ // boucle décrémentée car l'affichage conventionnel et celui pris par les tableaux est inversé
+        for (int c=0; c<7; c++){
+            if (CellulesJeu[l][c].trouNoir != false){
+                System.out.print("*"); // T sur la cellule pour signifier sa présence
+            }
+            else if (CellulesJeu[l][c].desintegrateur != false){
+                System.out.print("X");
+            }
+            else if (CellulesJeu[l][c].jetonCourant == null){
+                System.out.print("-");
+            }
+            else if ((CellulesJeu[l][c].lireCouleurDuJeton() == "rouge")){
+                    System.out.print("J");
+                 }
+            else{
+                    System.out.print("R");
+                }
+                  
+        }
+        System.out.println(" " + (l+1)); // affichage des numéros de lignes (l+1) car tableau commence à 0
+    }
+    for (int c=0; c<7; c++){
+        System.out.print((c+1)); // affichage des colonnes (c+1) car tableau commence à 0
+    }
+    System.out.println(); // affichage global du tableau
+}
+
+
+    /*public void afficherGrilleSurConsole() { // classe pour afficher la grille
         for (int i = 0; i < 6; i++) {//boucle pour parcourir le tableau
             for (int j = 0; j < 7; j++) {
                 if (CellulesJeu[i][j].jetonCourant == null) { // affichage si il n'y a aps de jeton
@@ -68,22 +97,47 @@ boolean trouNoir, desintegrateur;
                 }
 
             }
-            System.out.println(""); //affichage pour donner la forme au tableau
+            System.out.println("-"); //affichage pour donner la forme au tableau
         }
+    }*/
+    /*public void afficherGrilleSurConsole(){
+        for (int i=5;i>=0;i--){
+            for(int j=0;j<=6;j++){
+                if (celluleOccupee(i,j)==true){
+                    if ("Rouge".equals(CellulesJeu[i][j].lireCouleurDuJeton())) {
+                    System.out.print(" \033[31m X \033[30m ");      
+                    }
+                    else if ("Jaune".equals(CellulesJeu[i][j].lireCouleurDuJeton())) {
+                    System.out.print(" \033[33m X \033[30m ");      
+                    }
+                }
+                else if(CellulesJeu[i][j].presenceTrouNoir()==true){
+                    System.out.print(" \033[37m X \033[30m ");
+                }
+                else  {
+                System.out.print("  -  ");      
+                }
+               
+       
+      }  System.out.println();
+     
     }
+    }
+   /*
 
     public boolean celluleOccupee(int i, int j) {
         if (CellulesJeu[i][j].jetonCourant != null) { 
-            return false;
+           // System.out.println("Cellule occupée par jeton");
+            return true;
         }
-        return true;
+        return false;
     }
-
+*/
     public String lireCouleurDuJeton(int i, int j) {
-        String couleur;
-        couleur = CellulesJeu[i][j].jetonCourant.lireCouleur();
-        
-        return couleur;
+        //String couleur;
+        //couleur = CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton();
+       return (CellulesJeu[i][j].lireCouleurDuJeton());
+       // return couleur;
     }
     
   
@@ -118,7 +172,7 @@ boolean trouNoir, desintegrateur;
   }
   
 
-    public boolean etreGagnantePourJoueur(Joueur j) {
+   /* public boolean etreGagnantePourJoueur(Joueur j) {
 
  if (gagnantEnLigne()==true||gagnantEnColonne()==true||gagnantEnDiagonalMont()==true||gagnantEnDiagonalDesc()==true){
         return true;
@@ -126,6 +180,7 @@ boolean trouNoir, desintegrateur;
  
         return false;
     }
+  */
 boolean colonneRemplie (int colonne){
 
         return CellulesJeu[5][colonne].jetonCourant!=null ; 
@@ -172,7 +227,7 @@ boolean colonneRemplie (int colonne){
     }
 
    
-    public boolean gagnantEnColonne() {
+    /*public boolean gagnantEnColonne() {
         //Test pour le joueur avec les jetons Rouges
         for (int i = 0; i < 2; i++) {//boucle pour parcourir le tableau
             for (int j = 0; j < 7; j++) {
@@ -210,8 +265,8 @@ boolean colonneRemplie (int colonne){
         return false;
 
     }
-
-    public boolean gagnantEnDiagonalMont() {
+*/
+    /*public boolean gagnantEnDiagonalMont() {
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 3; j++) {
@@ -289,7 +344,188 @@ boolean colonneRemplie (int colonne){
         return false;
 
     
-}
+}*/
+public boolean etreGagnantePourJoueur(Joueur personnageG){
+
+        int Compt = 0;
+
+        String CouleurGagnante = personnageG.Couleur;
+
+ 
+
+        for (int i=0; i<6; i++) {
+
+            for (int j=0; j<4; j++){ 
+
+            Compt=0;
+
+            String CouleurCase = lireCouleurDuJeton(i,j);
+
+                if (CouleurCase == CouleurGagnante){
+
+                    int k =j;
+
+                    while (CellulesJeu[i][k].lireCouleurDuJeton()== CouleurGagnante){
+
+                        Compt += 1;
+
+                        k +=1;
+
+                        if (Compt == 4){
+
+                            return true;
+
+                        }
+
+                    }
+
+                }
+
+ 
+
+            }
+
+        }
+
+ 
+
+        for (int i=0; i<3; i++) {
+
+            for (int j=0; j<7; j++){
+
+                Compt=0;
+
+            String Couleurcellule = lireCouleurDuJeton(i,j);
+
+                if (Couleurcellule == CouleurGagnante){
+
+                    int k =i;
+
+                    while (CellulesJeu[k][j].lireCouleurDuJeton()== CouleurGagnante){
+
+                        Compt += 1;
+
+                        k +=1;
+
+                        if (Compt == 4){
+
+                            return true;
+
+ 
+
+                        }
+
+                    }
+
+                }    
+
+ 
+
+            }
+
+        }
+
+ 
+
+       
+
+        for (int i=0; i<3; i++) {
+
+            for (int j=0; j<4; j++){ 
+
+                Compt=0;
+
+            String Couleurcellule = lireCouleurDuJeton(i,j);
+
+                if (Couleurcellule == CouleurGagnante){
+
+                    int k =i;
+
+                    int n = j;
+
+                    while (CellulesJeu[k][n].lireCouleurDuJeton()== CouleurGagnante){
+
+                        Compt += 1;
+
+                        k +=1;
+
+                        n +=1;
+
+                        if (Compt == 4){
+
+                            return true;
+
+ 
+
+                        }
+
+ 
+
+                    }
+
+ 
+
+                }    
+
+ 
+
+            }
+
+ 
+
+        }
+
+ 
+
+        
+
+        for (int i=3; i<6; i++) {
+
+            for (int j=0; j<4; j++){ 
+
+                Compt=0;
+
+            String Couleurcellule = lireCouleurDuJeton(i,j);
+
+                if (Couleurcellule == CouleurGagnante){
+
+                    int k =i;
+
+                    int n = j;
+
+                    while (CellulesJeu[k][n].lireCouleurDuJeton()== CouleurGagnante){
+
+                        Compt += 1;
+
+                        k +=1;
+
+                        n -=1;
+
+                        if (Compt == 4){
+
+                            return true;
+
+ 
+
+                        }
+
+                    }
+
+                }    
+
+ 
+
+            }
+
+ 
+
+        }
+
+ 
+
+        return false;
+
+    }
     
  public void tasserGrille(int j ) {
       for (int i=5; i>0;i--){

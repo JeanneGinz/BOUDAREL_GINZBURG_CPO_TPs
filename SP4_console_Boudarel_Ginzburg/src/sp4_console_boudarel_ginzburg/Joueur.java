@@ -36,11 +36,11 @@ int i=0;
     if (ListeJetons[i]==null){
     ListeJetons[i]=jeton; //ajouter les jetons 
     i++; 
+    nombreJetonsRestants++;
     return true;
     }
     else{
         i++;
-        return false;  //permet de sortir du while une fois les jetons distribués 
     }  
 }
     return false;// permet de sortir de la fonction ajouter Jeton

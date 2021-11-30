@@ -28,11 +28,11 @@ public class Cellule {
     }
 
     public String lireCouleurDuJeton() { // méthode pour lire la couleur du jeton
-        if (jetonCourant == null) { //Cas ou il n'y a aps de jeton dans la cellule
-            return "vide";
-        } else {
+        if (jetonCourant != null) { //Cas ou il n'y a aps de jeton dans la cellule
             return jetonCourant.lireCouleur(); // méthode lisant la couleur du jeton dans la cellule
         }
+        else { return "vide";}
+            
     }
    
     public boolean  supprimerJeton(){ // méthode pour supprimer un jeton
