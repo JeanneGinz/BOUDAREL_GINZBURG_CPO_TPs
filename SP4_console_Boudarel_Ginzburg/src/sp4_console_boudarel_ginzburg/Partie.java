@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Partie {
     Joueur[] ListeJoueurs = new Joueur[2];
     Joueur joueurCourant;
-    Grille grilleJeu;
+    Grille grilleJeu= new Grille();
     
     public Partie(Joueur joueur1, Joueur joueur2){
      ListeJoueurs[0] = joueur1; // declaration des 2 joueurs
@@ -74,7 +74,7 @@ public class Partie {
       int DesinL = random.nextInt(6);//randomiser les coordonées en ligne
       int DesinC = random.nextInt(7);//randomiser les coordonées en colonne
       if (grilleJeu.CellulesJeu[DesinL][DesinC].presenceTrouNoir()==false){ // verifier qu'il n'y est pas déjà de trou noir
-      grilleJeu.CellulesJeu[DesinC][DesinC].placerDesintegrateur();  } // placer le désinteagrateur
+      grilleJeu.CellulesJeu[DesinL][DesinC].placerDesintegrateur();  } // placer le désinteagrateur
       else i--; // recommencer car il y a deja un trou noir
     }
     }
@@ -262,7 +262,7 @@ if (joueurCourant==ListeJoueurs[1]){
                     System.out.println("Colonne remplie. Réessayer.");
                     colonne = colonne -1;
                     }
-                    grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants - 1], colonne);
+                    grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne);
 
                 case 2: //Désintégrer un jeton adverse
                     
