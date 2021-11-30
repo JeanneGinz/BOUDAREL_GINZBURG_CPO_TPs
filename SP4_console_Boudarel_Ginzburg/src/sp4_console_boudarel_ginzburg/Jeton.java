@@ -9,18 +9,18 @@ package sp4_console_boudarel_ginzburg;
  * @author luluxontheflux
  */
 public class Jeton {
-  
-    String couleurJet; 
-     
-  public Jeton ( String c){
-    couleurJet = c; 
-    
-}
-  public String lireCouleur(){
-      
-     return couleurJet; // retourne la couleur du jeton
-     
-  }
-  
-  
+
+    String couleurJet;
+
+    public Jeton(String c) {
+        couleurJet = c;
+
+    }
+
+    public String lireCouleur() {
+
+        return couleurJet; // retourne la couleur du jeton
+
+    }
+
 }

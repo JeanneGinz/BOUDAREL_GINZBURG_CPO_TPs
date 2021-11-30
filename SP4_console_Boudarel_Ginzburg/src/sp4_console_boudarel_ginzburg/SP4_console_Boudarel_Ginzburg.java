@@ -17,10 +17,8 @@ public class SP4_console_Boudarel_Ginzburg {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      System.out.println("Bienvenue dans Puissance 4");
-        Partie unePartie = new Partie(new Joueur("a"), new Joueur("b"));
+        System.out.println("Bienvenue dans Puissance 4");
+        Partie unePartie = new Partie(new Joueur("a"), new Joueur("b")); //on initialise notre partie avec 2 joeurus
         unePartie.debuterPartie();
     }
 }
- 
-

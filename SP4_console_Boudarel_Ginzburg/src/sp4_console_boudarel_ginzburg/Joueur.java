@@ -46,7 +46,7 @@ int i=0;
     return false;// permet de sortir de la fonction ajouter Jeton
     
 }
-public void obtenirDesintegrateur(){
+public void obtenirDesintegrateur(){ //Création de la méthode d'obtention désintégrateur
     nombreDesintegrateurs ++;
     
 }
@@ -54,7 +54,7 @@ public void obtenirDesintegrateur(){
  public boolean utiliserDesintegrateur()   {
      
      if (nombreDesintegrateurs>0){
-  nombreDesintegrateurs = nombreDesintegrateurs-1;
+  nombreDesintegrateurs = nombreDesintegrateurs-1; // compteur
      return true;
      }
      else 
