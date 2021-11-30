@@ -155,7 +155,7 @@ public class Grille {// Création de la classe grille
         }
         return false;
     }
-
+// ce qu'on avait fait de base 
     /*public boolean gagnantEnColonne() {
         //Test pour le joueur avec les jetons Rouges
         for (int i = 0; i < 2; i++) {//boucle pour parcourir le tableau
@@ -276,7 +276,7 @@ public class Grille {// Création de la classe grille
 }*/
     public boolean etreGagnantePourJoueur(Joueur jou) {
 
-        int Compt = 0;
+        int Cpt = 0; // initialise un compteur
 
         String CouleurGagnante = jou.Couleur;
 
@@ -284,21 +284,21 @@ public class Grille {// Création de la classe grille
 
             for (int j = 0; j < 4; j++) {
 
-                Compt = 0;
+                Cpt = 0;
 
-                String CouleurCase = lireCouleurDuJeton(i, j);
+                String Couleur = lireCouleurDuJeton(i, j);
 
-                if (CouleurCase == CouleurGagnante) {
+                if (Couleur == CouleurGagnante) {
 
                     int k = j;
 
                     while (CellulesJeu[i][k].lireCouleurDuJeton() == CouleurGagnante) {
 
-                        Compt += 1;
+                        Cpt += 1;
 
                         k += 1;
 
-                        if (Compt == 4) {
+                        if (Cpt == 4) {
 
                             return true;
 
@@ -316,7 +316,7 @@ public class Grille {// Création de la classe grille
 
             for (int j = 0; j < 7; j++) {
 
-                Compt = 0;
+                Cpt = 0;
 
                 String Couleurcellule = lireCouleurDuJeton(i, j);
 
@@ -326,11 +326,11 @@ public class Grille {// Création de la classe grille
 
                     while (CellulesJeu[k][j].lireCouleurDuJeton() == CouleurGagnante) {
 
-                        Compt += 1;
+                        Cpt += 1;
 
                         k += 1;
 
-                        if (Compt == 4) {
+                        if (Cpt == 4) {
 
                             return true;
 
@@ -348,7 +348,7 @@ public class Grille {// Création de la classe grille
 
             for (int j = 0; j < 4; j++) {
 
-                Compt = 0;
+                Cpt = 0;
 
                 String Couleurcellule = lireCouleurDuJeton(i, j);
 
@@ -360,13 +360,13 @@ public class Grille {// Création de la classe grille
 
                     while (CellulesJeu[k][n].lireCouleurDuJeton() == CouleurGagnante) {
 
-                        Compt += 1;
+                        Cpt += 1;
 
                         k += 1;
 
                         n += 1;
 
-                        if (Compt == 4) {
+                        if (Cpt == 4) {
 
                             return true;
 
@@ -384,7 +384,7 @@ public class Grille {// Création de la classe grille
 
             for (int j = 0; j < 4; j++) {
 
-                Compt = 0;
+                Cpt = 0;
 
                 String Couleurcellule = lireCouleurDuJeton(i, j);
 
@@ -396,13 +396,13 @@ public class Grille {// Création de la classe grille
 
                     while (CellulesJeu[k][n].lireCouleurDuJeton() == CouleurGagnante) {
 
-                        Compt += 1;
+                        Cpt += 1;
 
                         k += 1;
 
                         n -= 1;
 
-                        if (Compt == 4) {
+                        if (Cpt == 4) {
 
                             return true;
 
@@ -420,7 +420,7 @@ public class Grille {// Création de la classe grille
 
     }
 
-    public void tasserGrille(int j) {
+    public void tasserGrille(int j) { // si un jeton a été enlever il faut faire redescendre tous les jetons
         for (int i = 5; i > 0; i--) {
 
             while (i < 6 && CellulesJeu[i][j].jetonCourant != null) {
